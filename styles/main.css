@@ -1,0 +1,253 @@
+:root {
+  --font-family-headers: georgia;
+  --main-background-color-blue: #346a84;
+  --film-image-width: 40rem;
+  --film-image-border-radius: 1rem;
+  --description-padding: 15px;
+}
+
+body {
+  border: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-headers);
+  font-weight: 600;
+  padding: 0;
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+main {
+  background-color: var(--main-background-color-blue);
+  color: white;
+  height: max-content;
+  padding-bottom: 60px;
+}
+
+nav img {
+  top: 0.5rem;
+  width: 17rem;
+  left: 0.9rem;
+  position: fixed;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+section {
+  padding: 20px 0;
+}
+
+.flexbox {
+  display: flex;
+  align-items: flex-start;
+}
+
+.standard-section {
+  border-top: 1px solid white;
+  padding: 20px 40px;
+}
+
+.top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.404);
+  width: 100vw;
+  height: 6.3rem;
+  overflow-y: hidden;
+  top: 0px;
+  z-index: -2;
+}
+
+.top-navbar ul {
+  list-style-type: none;
+  display: flex;
+  gap: 3.5rem;
+  position: relative;
+  padding: 0;
+}
+
+.top-navbar ul li {
+  font-size: 1.8rem;
+  cursor: pointer;
+  font-family: var(--font-family-headers);
+}
+
+.main-content-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+  max-width: 1300px;
+}
+
+.main-content-container h2 {
+  text-align: center;
+}
+
+.film-image {
+  display: block;
+  width: 70vw;
+  max-width: var(--film-image-width);
+  height: auto;
+  border-radius: var(--film-image-border-radius);
+  margin: 0;
+}
+
+#latest-release {
+  border-bottom: 1px solid white;
+}
+
+#latest-release .flexbox {
+  gap: 2rem;
+}
+
+.main-content-container section {
+  margin-bottom: 5rem;
+}
+
+.main-content-container section:last-child {
+  margin-bottom: 0;
+}
+
+.film-box-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 20px 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100vw;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.film-box-container:-webkit-scrollbar {
+  display: none;
+}
+
+.film-box {
+  position: relative;
+  text-align: center;
+  height: inherit;
+  scroll-snap-align: center;
+  transition: all 0.2s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+/* children 1 and 2 are navigation buttons */
+.film-box:nth-child(3) {
+  margin-left: calc(50vw - var(--film-image-width) / 2);
+}
+
+.film-box:last-child {
+  margin-right: calc(50vw - var(--film-image-width) / 2);
+}
+
+.film-box:hover {
+  scale: 1.07;
+}
+
+.film-box:hover .description,
+.film-box:active .description {
+  opacity: 1;
+}
+
+.description {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: end;
+  position: absolute;
+  bottom: 0;
+  padding: var(--description-padding);
+  border-radius: var(--film-image-border-radius);
+  width: 100%;
+  height: calc(100% - var(--description-padding) * 2);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0),
+    rgba(0, 0, 0, 0.021)
+  );
+  max-width: calc(var(--film-image-width) - var(--description-padding) * 2);
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+.description a {
+  color: inherit;
+}
+
+#our-films {
+  text-align: center;
+}
+
+#left-scroll-button,
+#right-scroll-button {
+  height: min-content;
+  position: fixed;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  outline: inherit;
+  scale: 1.5;
+  transition: all 0.2s;
+  z-index: 2;
+}
+
+#left-scroll-button:hover,
+#right-scroll-button:hover {
+  scale: 1.7;
+}
+
+#our-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+.team-member-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  gap: 4rem;
+}
+
+.team-member-container div:first-child p {
+  width: max-content;
+}
+.team-member-container:nth-child(2n) {
+  flex-direction: row;
+}
+
+.team-member-image {
+  height: auto;
+  width: 20vw;
+  max-width: 20rem;
+  border-radius: 1rem;
+}
+
+.team-member-details {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 3rem;
+}
